@@ -31,16 +31,16 @@ data_path
 
 DBSCAN Clustering
       
-      clustered_data = dbscan_cluster(data_path, 'dbscan_clusters')
+    clustered_data = dbscan_cluster(data_path, 'dbscan_clusters')
 
 K-Means Clustering
       
-      kmeans_cluster(data_path, 5, "kmeans_clusters")
+    kmeans_cluster(data_path, 5, "kmeans_clusters")
 
 K-Menoids PAM Clustering
       
-      df_clustered = run_kmedoids_pam_clustering(data_path, 5, "kmenoids_clusters")
+    df_clustered = run_kmedoids_pam_clustering(data_path, 5, "kmenoids_clusters")
 
 Evalute Clusters (K-Means)
       
-      print(evaluate_clusters(data_path, 5))
+    print(evaluate_clusters(data_path, 5))
