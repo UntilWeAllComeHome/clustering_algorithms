@@ -26,16 +26,21 @@ Install the required modules
 
 ## Example Usage ##
 data_path
-      "input_file/test_points.shp"
+
+    "input_file/test_points.shp"
 
 DBSCAN Clustering
+      
       clustered_data = dbscan_cluster(data_path, 'dbscan_clusters')
 
 K-Means Clustering
+      
       kmeans_cluster(data_path, 5, "kmeans_clusters")
 
 K-Menoids PAM Clustering
+      
       df_clustered = run_kmedoids_pam_clustering(data_path, 5, "kmenoids_clusters")
 
 Evalute Clusters (K-Means)
+      
       print(evaluate_clusters(data_path, 5))
