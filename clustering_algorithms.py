@@ -1,7 +1,45 @@
+import matplotlib.pyplot as plt
 import geopandas as gpd
+import numpy as np
+
+from pointpats import k_test
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn_extra.cluster import KMedoids
 from sklearn.metrics import silhouette_score, calinski_harabasz_score
+
+### Evaluation Functions ###
+def plot_ripley_k_pointpats(data_path: str, output_title: str):
+    """
+    Reads geospatial data, calculates Ripley's K with pointpats, and visualizes it.
+
+    Args:
+    data_path: Path to the data file (geojson or shapefile).
+    plot_output: Path to save the resulting graphic (needs to be saved as a .png)
+
+    Returns:
+    None (plots Ripley's K directly).
+
+    Huge thanks to: https://michaelminn.net/tutorials/python-points/index.html
+    """
+
+    # Read sample data
+    data = gpd.read_file(data_path)
+
+    # Create Column Stack
+    points = np.column_stack((data.geometry.x, data.geometry.y))
+
+    # Calculate Ripley's K
+    k = k_test(points, keep_simulations=True)
+
+    # Build visualization
+    plt.plot(k.support, k.simulations.T, color='navy', alpha=.01)
+    plt.plot(k.support, k.statistic, color='red')
+    plt.xlabel('Distance')
+    plt.ylabel('K Function')
+    plt.title(output_title)
+
+    # Save visualization
+    plt.savefig(f"{output_title}.png")
 
 
 def evaluate_silhouette_coeff(value: float):
@@ -32,6 +70,7 @@ def evaluate_calinski_harabasz_index(value: float):
     return "Poor Clustering"
 
 
+### Clustering Algorithms ###
 def kmeans_cluster(input_file: str, num_clusters: int, output_filename: str):
   """
   Clusters a GeoDataFrame using K-means and saves the output as a geojson file.
@@ -152,3 +191,11 @@ def evaluate_clusters(data_path, n_clusters):
           "calinski_harabasz_index": calinski_harabasz_index,
           "chi_evaluation": evaluate_calinski_harabasz_index(calinski_harabasz_index)}
 
+
+### Example Usage ###
+"""
+input_data = "input_file/test_points.shp"
+output_title = "Input Points Ripley K Results"
+
+plot_ripley_k_pointpats(input_data, output_title)
+"""

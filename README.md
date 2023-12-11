@@ -19,6 +19,10 @@ Activate the new environment
 
     pyenv activate clustering_algs
 
+Make sure pip is on the most current version
+
+    pip install -U pip
+
 Install the required modules
 
     pip install -r requirements.txt

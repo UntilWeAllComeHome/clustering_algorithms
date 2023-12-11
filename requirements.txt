@@ -7,3 +7,6 @@ geopy
 scikit-learn
 scikit-learn-extra
 streamlit
+seaborn
+esda
+pysal
