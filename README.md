@@ -48,3 +48,19 @@ K-Menoids PAM Clustering
 Evalute Clusters (K-Means)
       
     print(evaluate_clusters(data_path, 5))
+
+## Example Output ##
+
+Here are a few example visualizations of the output from using the different algorithms against a dataset containing US Nuclear Power Plants. 
+
+K-Means with 5 clusters (means in white):
+
+![K-Means](sample_outputs/k_means.gif)
+
+K-Menoids with 5 clusters (menoids in white): 
+
+![K-Menoids](sample_outputs/k_medoids.gif)
+
+Rilpey's K against the Nuclear Powerpoint Dataset and the synthetically generated, evenly distributed data:
+
+![Ripley's K](sample_outputs/Ripley_K_Duel.png)
