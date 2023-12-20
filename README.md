@@ -41,7 +41,7 @@ K-Means with 5 clusters (means in white):
 
 K-Menoids with 5 clusters (menoids in white): 
 
-![K-Menoids](sample_outputs/k_medoids.gif)
+![K-Menoids](sample_outputs/K_medoids.gif)
 
 Rilpey's K against the Nuclear Powerpoint Dataset and the synthetically generated, evenly distributed data:
 
