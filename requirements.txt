@@ -10,3 +10,7 @@ streamlit
 seaborn
 esda
 pysal
+fastapi
+matplotlib
+python-multipart
+uvicorn
