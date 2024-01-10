@@ -1,0 +1,12 @@
+geopandas
+pygeos
+numpy
+scipy
+spatstat-interface
+geopy
+scikit-learn
+scikit-learn-extra
+streamlit
+seaborn
+esda
+pysal
