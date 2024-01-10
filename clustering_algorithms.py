@@ -159,13 +159,13 @@ def dbscan_cluster(data_path, output_filename, eps=.5, min_samples=5):
   data.to_file(f"output_files/{output_filename}_{min_samples}.geojson")
 
 
-def evaluate_clusters(data_path, n_clusters):
+def evaluate_clusters(data_path: str, k: int = 5):
   """
   Reads geospatial data, performs K-means clustering, and calculates cluster evaluation metrics.
 
   Args:
-    data_path: Path to the data file (geojson or shapefile).
-    n_clusters: Number of clusters.
+    data_path (str): Path to the data file (geojson or shapefile).
+    k (int): Number of clusters - defaults to 5.
 
   Returns:
     A dictionary containing the Silhouette Coefficient and Calinski-Harabasz Index.
@@ -178,7 +178,7 @@ def evaluate_clusters(data_path, n_clusters):
   coordinates = [(p.x, p.y) for p in data.geometry]
 
   # Perform K-means clustering
-  kmeans = KMeans(n_clusters=n_clusters).fit(coordinates)
+  kmeans = KMeans(n_clusters=k).fit(coordinates)
   cluster_labels = kmeans.labels_
 
   # Calculate evaluation metrics
